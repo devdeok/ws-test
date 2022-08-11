@@ -13,7 +13,6 @@ import org.springframework.data.redis.core.RedisHash;
 @ToString
 public class Chat {
     @Id
-
     private Long id;
 
 

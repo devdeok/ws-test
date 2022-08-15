@@ -11,9 +11,4 @@ public class WsTestApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(WsTestApplication.class, args);
 	}
-
-	@Bean
-	public ServerEndpointExporter serverEndpointExporter(){
-		return new ServerEndpointExporter();
-	}
 }

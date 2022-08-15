@@ -1,22 +1,22 @@
 package tmax.roger.wstest.config;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.socket.WebSocketHandler;
-import org.springframework.web.socket.config.annotation.EnableWebSocket;
-import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
-import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.web.socket.config.annotation.*;
 
-@RequiredArgsConstructor
 @Configuration
-@EnableWebSocket // WebSocket 활성화
-public class WebSockConfig implements WebSocketConfigurer {
-    private final WebSocketHandler webSocketHandler;
+@EnableWebSocketMessageBroker
+public class WebSockConfig implements WebSocketMessageBrokerConfigurer {
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry.addEndpoint("/ws")
+//                .setAllowedOriginPatterns("*")
+                .setAllowedOrigins("*");
+    }
 
     @Override
-    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        //
-        registry.addHandler(webSocketHandler, "wstest-2")
-                .setAllowedOrigins("*");
+    public void configureMessageBroker(MessageBrokerRegistry registry) {
+        registry.enableSimpleBroker("/sub");
+        registry.setApplicationDestinationPrefixes("/pub");
     }
 }

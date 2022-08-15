@@ -23,6 +23,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
+	// mybatis
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+	// db
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
 	//redis
 	implementation 'org.springframework.boot:spring-boot-starter-redis:1.4.6.RELEASE'
 

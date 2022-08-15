@@ -13,13 +13,31 @@ import java.util.List;
 public class ChatController {
     private final ChatService chatService;
 
-    @PostMapping
-    public ChatRoom createRoom(@RequestBody String name){
-        return chatService.createRoom(name);
+    /**
+     * 방만들기
+     */
+    @PostMapping("/enterRoom")
+    public ChatRoom createRoom(@RequestBody String userId, String friendId){
+        // 친구관계 확인
+        
+        // 방이 없을 경우 방 생성 후 입장
+        
+        // 방이 있을 경우 방 입장
+        
+        
+        return chatService.createRoom(friendId);
     }
 
-    @GetMapping
+    /**
+     * 방 조회
+     */
+    @GetMapping("/room")
     public List<ChatRoom> findAllRoom(){
         return chatService.findAllRoom();
     }
+
+
+
+
+
 }

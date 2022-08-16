@@ -53,4 +53,12 @@ public class ChatService {
             log.error(e.getMessage(), e);
         }
     }
+
+    public boolean isFriend(String friendId){
+        return true;
+    }
+    public boolean isPresentRoom(String uuid, String friendId){
+        return true;
+    }
+
 }
